@@ -25,6 +25,7 @@ import (
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 */
+
 //ParseFiles ParseFiles
 func ParseFiles(dir string) {
 	fmt.Println(dir)
