@@ -1,20 +1,19 @@
 package filebuilder
 
-import "testing"
+import (
+	//fb "github.com/Ulbora/dcIntegration/filebuilder"
+	"testing"
+)
 
 func TestParseFiles(t *testing.T) {
-	type args struct {
-		dir string
+	ParseFiles("testdir")
+}
+func TestReadFileDir(t *testing.T) {
+	res := readFileDir("../testdir")
+	if (*res)[0].Name != "test1" {
+		t.Fail()
 	}
-	tests := []struct {
-		name string
-		args args
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			ParseFiles(tt.args.dir)
-		})
+	if (*res)[0].Files[0] != "test11.csv" {
+		t.Fail()
 	}
 }

@@ -1,0 +1,14 @@
+mode: set
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:29.29,31.2 1 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:32.45,36.16 4 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:63.2,63.13 1 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:36.16,37.30 1 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:45.3,45.27 1 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:61.3,61.28 1 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:37.30,39.20 2 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:39.20,43.5 3 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:45.27,50.18 5 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:58.4,59.29 2 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:50.18,51.34 1 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:51.34,52.24 1 1
+github.com/Ulbora/dcIntegration/filebuilder/csvbuilder.go:52.24,55.7 1 1

@@ -25,4 +25,11 @@ type Builder interface {
 	ParseFiles(dir string)
 	readFile(name string) (*[]byte, error)
 	saveFile(name string) bool
+	readDir(dir string)
+}
+
+//SupplierDir SupplierDir
+type SupplierDir struct {
+	Name  string
+	Files []string
 }
