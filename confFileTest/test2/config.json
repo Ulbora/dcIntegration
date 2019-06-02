@@ -1,0 +1,119 @@
+{
+    "distributor": "test2ds",
+    "cfDirectory": "test2",
+    "spfFields": [
+        {
+            "spfKey": "SKURcrd",
+            "cartKey": "id",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "MfgName",
+            "cartKey": "manufacturer",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "MfgNo",
+            "cartKey": "mfgid",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "Quantity",
+            "cartKey": "stock",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "smShortDesc",
+            "cartKey": "description",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "ShortDesc",
+            "cartKey": "name",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "Description",
+            "cartKey": "extended_description",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "Price",
+            "cartKey": "cost",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "MSRP",
+            "cartKey": "price",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "MSRP",
+            "cartKey": "price2",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "ShipWeight",
+            "cartKey": "weight",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "CategoryParentName",
+            "cartKey": "categories",
+            "prefix": "",
+            "spfSubKeys": [
+                "CategoryName"                
+            ]
+        },
+        {
+            "spfKey": "Thumbnail",
+            "cartKey": "thumbnail",
+            "prefix": "assets/images/thumbnails/",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "PicURL",
+            "cartKey": "image1",
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        }
+
+    ]
+}
