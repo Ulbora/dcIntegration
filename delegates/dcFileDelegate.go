@@ -28,12 +28,24 @@ type DcCartFileDelegate interface {
 	BuildDcCartFiles()
 }
 
+//Elem Elem
+type Elem struct {
+	ColumnName string
+	Value      string
+}
+
 //BuildDcCartFiles BuildDcCartFiles
-func BuildDcCartFiles(sfdir string, dcdir string) {
+func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
+	var cf DcConfigFileDelegate
+	var conf DcConfigFiles
+	cf = &conf
+	cfiles := cf.GetDcConfigs(confdir)
+	fmt.Println("cfiles: ", cfiles)
+
 	var b sfb.Builder
 	var csvb sfb.CsvFileBuilder
 	b = &csvb
-	files := b.ReadAllSupplierDirs("../sfFileTest")
+	files := b.ReadAllSupplierDirs(supdir)
 	for _, filed := range *files {
 		fmt.Println("filed: ", filed)
 		fmt.Println("spdir: ", filed.Name)
@@ -41,10 +53,45 @@ func BuildDcCartFiles(sfdir string, dcdir string) {
 			fmt.Println("file full name: ", file.FullName)
 			fcont := b.ReadSourceFile(file.FullName)
 			//fmt.Println("sup file: ", fcont.)
-			fmt.Println("len: ", len(fcont))
+			fmt.Println("fcont len: ", len(fcont))
+			dccont := buildCartFile(&fcont, cfiles)
+			fmt.Println("dccont len: ", len(*dccont))
 		}
 	}
 	//fmt.Println("sf files: ", files)
 	//fmt.Println("sf file dir", sfdir)
 	//fmt.Println("dc file dir", dcdir)
+}
+
+func buildCartFile(sourceFile *[][]string, confMap *map[string]ConfFile) *[][]string {
+	var rtn [][]string
+	//var dccol = []string{"distributor", "id", "mfgid", "name", "manufacturer", "categories", "cost", "price", "price2", "stock", "weight", "free_shipping", "date_created", "description", "extended_description", "keywords", "hide", "sorting", "thumbnail", "image1", "image2", "image3", "image4", "related", "distributor", "shipcost", "homespecial", "categoryspecial", "title", "metatags"}
+
+	var dcrow []map[string]string
+	var scol []string
+	for c, row := range *sourceFile {
+		if c == 0 {
+			fmt.Println("row c : ", c)
+			scol = row
+		} else {
+			var elemMap = make(map[string]string)
+			for cc, elem := range row {
+				//fmt.Println("elem c : ", cc)
+				var e Elem
+				e.ColumnName = scol[cc]
+				e.Value = elem
+				//fmt.Println("Elem : ", e)
+				elemMap[scol[cc]] = elem
+				//fmt.Println("elemMap : ", elemMap)
+				dcrow = append(dcrow, elemMap)
+			}
+		}
+		fmt.Println("dcrow : ", dcrow)
+		//fmt.Println("col : ", scol)
+		//fmt.Println("dccol : ", dccol)
+		//fmt.Println("row : ", row)
+
+	}
+
+	return &rtn
 }
