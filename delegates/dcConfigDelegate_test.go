@@ -12,4 +12,7 @@ func TestGetDcConfigs(t *testing.T) {
 	res := cf.GetDcConfigs("../confFileTest")
 	fmt.Println("GetDcConfigs rtn: ", res)
 	fmt.Println("GetDcConfigs rtn fields: ", (*res)["test1"].Fields)
+	if (*res)["test1"].Distributor != "test1ds" {
+		t.Fail()
+	}
 }

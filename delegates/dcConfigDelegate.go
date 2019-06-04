@@ -43,18 +43,18 @@ func (dcc *DcConfigFiles) GetDcConfigs(dir string) *map[string]ConfFile {
 
 func buildFields(ff []sfc.SpfField) *map[string]sfc.SpfField {
 	var rtn = make(map[string]sfc.SpfField)
-	var msrp1Found = false
+	//var msrp1Found = false
 	for _, f := range ff {
-		if f.SpfKey == "MSRP" && !msrp1Found {
-			var key = "MSRP1"
-			rtn[key] = f
-			msrp1Found = true
-		} else if f.SpfKey == "MSRP" && msrp1Found {
-			var key = "MSRP2"
-			rtn[key] = f
-		} else {
-			rtn[f.SpfKey] = f
-		}
+		// if f.SpfKey == "MSRP" && !msrp1Found {
+		// 	var key = "MSRP1"
+		// 	rtn[key] = f
+		// 	msrp1Found = true
+		// } else if f.SpfKey == "MSRP" && msrp1Found {
+		// 	var key = "MSRP2"
+		// 	rtn[key] = f
+		// } else {
+		rtn[f.CartKey] = f
+		//}
 	}
 	return &rtn
 }

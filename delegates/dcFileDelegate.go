@@ -54,7 +54,8 @@ func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 			fcont := b.ReadSourceFile(file.FullName)
 			//fmt.Println("sup file: ", fcont.)
 			fmt.Println("fcont len: ", len(fcont))
-			dccont := buildCartFile(&fcont, cfiles)
+			cfil := (*cfiles)[filed.Name]
+			dccont := buildCartFile(&fcont, &cfil)
 			fmt.Println("dccont len: ", len(*dccont))
 		}
 	}
@@ -63,30 +64,48 @@ func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 	//fmt.Println("dc file dir", dcdir)
 }
 
-func buildCartFile(sourceFile *[][]string, confMap *map[string]ConfFile) *[][]string {
+func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 	var rtn [][]string
-	//var dccol = []string{"distributor", "id", "mfgid", "name", "manufacturer", "categories", "cost", "price", "price2", "stock", "weight", "free_shipping", "date_created", "description", "extended_description", "keywords", "hide", "sorting", "thumbnail", "image1", "image2", "image3", "image4", "related", "distributor", "shipcost", "homespecial", "categoryspecial", "title", "metatags"}
-
-	var dcrow []map[string]string
+	var dccol = []string{"distributor", "id", "mfgid", "name", "manufacturer", "categories", "cost", "price", "price2", "stock", "weight", "free_shipping", "date_created", "description", "extended_description", "keywords", "hide", "sorting", "thumbnail", "image1", "image2", "image3", "image4", "related", "distributor", "shipcost", "homespecial", "categoryspecial", "title", "metatags"}
+	rtn = append(rtn, dccol)
+	// var dcrow []map[string]string
 	var scol []string
 	for c, row := range *sourceFile {
 		if c == 0 {
 			fmt.Println("row c : ", c)
 			scol = row
+			fmt.Println("header row: ", scol)
 		} else {
+			var dcrow []map[string]string
 			var elemMap = make(map[string]string)
 			for cc, elem := range row {
 				//fmt.Println("elem c : ", cc)
-				var e Elem
-				e.ColumnName = scol[cc]
-				e.Value = elem
+				//var e Elem
+				//e.ColumnName = scol[cc]
+				//e.Value = elem
 				//fmt.Println("Elem : ", e)
 				elemMap[scol[cc]] = elem
 				//fmt.Println("elemMap : ", elemMap)
 				dcrow = append(dcrow, elemMap)
 			}
+			var dcvr []string
+			dcvr = append(dcvr, "GS")
+			fmt.Println("elemMap : ", elemMap)
+			for _, dck := range dccol{
+				dce := (*conf.Fields)[dck]
+				if dce.CartKey != ""{
+					fmt.Println("dce : ", dce)
+					fcnt := elemMap[dce.SpfKey]
+					fmt.Println("fcnt : ", fcnt)
+				}else{
+					dcvr = append(dcvr, "")
+				}
+				
+				//dcvr = append(dcvr, dce.)
+			}
+			 
 		}
-		fmt.Println("dcrow : ", dcrow)
+		//fmt.Println("dcrow : ", dcrow)
 		//fmt.Println("col : ", scol)
 		//fmt.Println("dccol : ", dccol)
 		//fmt.Println("row : ", row)
