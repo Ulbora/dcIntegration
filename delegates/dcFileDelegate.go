@@ -91,19 +91,19 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 			var dcvr []string
 			dcvr = append(dcvr, "GS")
 			fmt.Println("elemMap : ", elemMap)
-			for _, dck := range dccol{
+			for _, dck := range dccol {
 				dce := (*conf.Fields)[dck]
-				if dce.CartKey != ""{
+				if dce.CartKey != "" {
 					fmt.Println("dce : ", dce)
 					fcnt := elemMap[dce.SpfKey]
 					fmt.Println("fcnt : ", fcnt)
-				}else{
+				} else {
 					dcvr = append(dcvr, "")
 				}
-				
+
 				//dcvr = append(dcvr, dce.)
 			}
-			 
+
 		}
 		//fmt.Println("dcrow : ", dcrow)
 		//fmt.Println("col : ", scol)
