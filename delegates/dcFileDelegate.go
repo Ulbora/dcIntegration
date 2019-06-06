@@ -69,7 +69,7 @@ func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 	//fmt.Println("sf files: ", files)
 	//fmt.Println("sf file dir", sfdir)
 	//fmt.Println("dc file dir", dcdir)
-	
+
 }
 
 func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
