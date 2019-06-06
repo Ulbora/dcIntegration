@@ -44,12 +44,14 @@ func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 
 	var b sfb.Builder
 	var csvb sfb.CsvFileBuilder
+	csvb.OutputDir = dcartdir
 	b = &csvb
 	files := b.ReadAllSupplierDirs(supdir)
 	for _, filed := range *files {
 		fmt.Println("filed: ", filed)
 		fmt.Println("spdir: ", filed.Name)
 		for _, file := range filed.Files {
+			fmt.Println("file name: ", file.Name)
 			fmt.Println("file full name: ", file.FullName)
 			fcont := b.ReadSourceFile(file.FullName)
 			//fmt.Println("sup file: ", fcont.)
@@ -57,6 +59,11 @@ func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 			cfil := (*cfiles)[filed.Name]
 			dccont := buildCartFile(&fcont, &cfil)
 			fmt.Println("dccont len: ", len(*dccont))
+			var df sfb.CartCsvFile
+			df.FileName = file.Name
+			df.Content = *dccont
+			b.SaveCartFile(df)
+
 		}
 	}
 	//fmt.Println("sf files: ", files)
@@ -89,20 +96,39 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 				dcrow = append(dcrow, elemMap)
 			}
 			var dcvr []string
-			dcvr = append(dcvr, "GS")
+			dcvr = append(dcvr, conf.Distributor)
 			fmt.Println("elemMap : ", elemMap)
-			for _, dck := range dccol {
-				dce := (*conf.Fields)[dck]
-				if dce.CartKey != "" {
-					fmt.Println("dce : ", dce)
-					fcnt := elemMap[dce.SpfKey]
-					fmt.Println("fcnt : ", fcnt)
+			for colc, dck := range dccol {
+				if colc == 0 {
+					continue
 				} else {
-					dcvr = append(dcvr, "")
+					dce := (*conf.Fields)[dck]
+					if dce.CartKey != "" {
+						fmt.Println("dce : ", dce)
+						fcnt := elemMap[dce.SpfKey]
+						fmt.Println("fcnt : ", fcnt)
+						if dce.Required && fcnt == "" {
+							continue
+						} else {
+							var cont = ""
+							if dce.Prefix != "" {
+								cont = dce.Prefix
+							}
+							if len(dce.SpfSubKeys) > 0 {
+								fcnt2 := elemMap[dce.SpfSubKeys[0]]
+								cont += (fcnt + "/" + fcnt2)
+							} else {
+								cont += fcnt
+							}
+							dcvr = append(dcvr, cont)
+						}
+					} else {
+						dcvr = append(dcvr, "")
+					}
 				}
-
 				//dcvr = append(dcvr, dce.)
 			}
+			rtn = append(rtn, dcvr)
 
 		}
 		//fmt.Println("dcrow : ", dcrow)
@@ -111,6 +137,6 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 		//fmt.Println("row : ", row)
 
 	}
-
+	fmt.Println("cart file : ", rtn)
 	return &rtn
 }

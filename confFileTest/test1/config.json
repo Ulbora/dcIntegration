@@ -127,7 +127,15 @@
             "spfSubKeys": [
                 
             ]
+        },
+        {
+            "spfKey": "badfield",
+            "cartKey": "image1",
+            "required": true,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
         }
-
     ]
 }
