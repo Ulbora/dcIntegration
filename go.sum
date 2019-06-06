@@ -1,4 +1,6 @@
 github.com/Ulbora/intgConvConfig v1.0.0 h1:pQKsd8Tjq3Dip29OrnzrswTNE6XVy6qpmmjaMXecDjQ=
 github.com/Ulbora/intgConvConfig v1.0.0/go.mod h1:nzFSfOmvw7RD0HNc5am2NSsLpXjGHmyDpYyIlnJX8Gw=
+github.com/Ulbora/intgConvConfig v1.0.1 h1:+QY0PALM84jQOC8sniNGfN+d3LkFGbhEs2PqtKxs5pY=
+github.com/Ulbora/intgConvConfig v1.0.1/go.mod h1:nzFSfOmvw7RD0HNc5am2NSsLpXjGHmyDpYyIlnJX8Gw=
 github.com/Ulbora/intgFileBuilder v1.0.0 h1:pJgLCL8V3vP0bifM0ASiG1eVL2b0hTMhnS/3ZcQlanY=
 github.com/Ulbora/intgFileBuilder v1.0.0/go.mod h1:OL3YKNitjdMoaXVVjPB+Xl6GzpGW+kJbEqJiwvaIoRs=

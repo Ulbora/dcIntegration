@@ -5,6 +5,7 @@
         {
             "spfKey": "SKURcrd",
             "cartKey": "id",
+            "required": true,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -13,6 +14,7 @@
         {
             "spfKey": "MfgName",
             "cartKey": "manufacturer",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -21,6 +23,7 @@
         {
             "spfKey": "MfgNo",
             "cartKey": "mfgid",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -29,6 +32,7 @@
         {
             "spfKey": "Quantity",
             "cartKey": "stock",
+            "required": true,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -37,6 +41,7 @@
         {
             "spfKey": "smShortDesc",
             "cartKey": "description",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -45,6 +50,7 @@
         {
             "spfKey": "ShortDesc",
             "cartKey": "name",
+            "required": true,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -53,6 +59,7 @@
         {
             "spfKey": "Description",
             "cartKey": "extended_description",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -61,6 +68,7 @@
         {
             "spfKey": "Price",
             "cartKey": "cost",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -69,6 +77,7 @@
         {
             "spfKey": "MSRP",
             "cartKey": "price",
+            "required": true,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -77,6 +86,7 @@
         {
             "spfKey": "MSRP",
             "cartKey": "price2",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -85,6 +95,7 @@
         {
             "spfKey": "ShipWeight",
             "cartKey": "weight",
+            "required": true,
             "prefix": "",
             "spfSubKeys": [
                 
@@ -93,6 +104,7 @@
         {
             "spfKey": "CategoryParentName",
             "cartKey": "categories",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 "CategoryName"                
@@ -101,6 +113,7 @@
         {
             "spfKey": "Thumbnail",
             "cartKey": "thumbnail",
+            "required": false,
             "prefix": "assets/images/thumbnails/",
             "spfSubKeys": [
                 
@@ -109,6 +122,7 @@
         {
             "spfKey": "PicURL",
             "cartKey": "image1",
+            "required": false,
             "prefix": "",
             "spfSubKeys": [
                 
