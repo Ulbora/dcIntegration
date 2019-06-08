@@ -1,7 +1,7 @@
 package delegates
 
 import (
-	"fmt"
+	//"fmt"
 
 	sfb "github.com/Ulbora/intgFileBuilder"
 )
@@ -40,7 +40,7 @@ func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 	var conf DcConfigFiles
 	cf = &conf
 	cfiles := cf.GetDcConfigs(confdir)
-	fmt.Println("cfiles: ", cfiles)
+	//fmt.Println("cfiles: ", cfiles)
 
 	var b sfb.Builder
 	var csvb sfb.CsvFileBuilder
@@ -48,22 +48,21 @@ func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 	b = &csvb
 	files := b.ReadAllSupplierDirs(supdir)
 	for _, filed := range *files {
-		fmt.Println("filed: ", filed)
-		fmt.Println("spdir: ", filed.Name)
+		//fmt.Println("filed: ", filed)
+		//fmt.Println("spdir: ", filed.Name)
 		for _, file := range filed.Files {
-			fmt.Println("file name: ", file.Name)
-			fmt.Println("file full name: ", file.FullName)
+			//fmt.Println("file name: ", file.Name)
+			//fmt.Println("file full name: ", file.FullName)
 			fcont := b.ReadSourceFile(file.FullName)
 			//fmt.Println("sup file: ", fcont.)
-			fmt.Println("fcont len: ", len(fcont))
+			//fmt.Println("fcont len: ", len(fcont))
 			cfil := (*cfiles)[filed.Name]
 			dccont := buildCartFile(&fcont, &cfil)
-			fmt.Println("dccont len: ", len(*dccont))
+			//fmt.Println("dccont len: ", len(*dccont))
 			var df sfb.CartCsvFile
 			df.FileName = file.Name
 			df.Content = *dccont
 			b.SaveCartFile(df)
-
 		}
 	}
 	//fmt.Println("sf files: ", files)
@@ -80,11 +79,11 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 	var scol []string
 	for c, row := range *sourceFile {
 		if c == 0 {
-			fmt.Println("row c : ", c)
+			//fmt.Println("row c : ", c)
 			scol = row
-			fmt.Println("header row: ", scol)
+			//fmt.Println("header row: ", scol)
 		} else {
-			var dcrow []map[string]string
+			//var dcrow []map[string]string
 			var elemMap = make(map[string]string)
 			for cc, elem := range row {
 				//fmt.Println("elem c : ", cc)
@@ -94,22 +93,28 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 				//fmt.Println("Elem : ", e)
 				elemMap[scol[cc]] = elem
 				//fmt.Println("elemMap : ", elemMap)
-				dcrow = append(dcrow, elemMap)
+				//dcrow = append(dcrow, elemMap)
 			}
 			var dcvr []string
 			dcvr = append(dcvr, conf.Distributor)
-			fmt.Println("elemMap : ", elemMap)
+			//fmt.Println("elemMap : ", elemMap)
+			var foundErr = false
 			for colc, dck := range dccol {
+				//fmt.Println("dck : ", dck)
 				if colc == 0 {
 					continue
 				} else {
 					dce := (*conf.Fields)[dck]
+					//fmt.Println("dce : ", dce)
+					//fmt.Println("CartKey : ", dce.CartKey)
 					if dce.CartKey != "" {
-						fmt.Println("dce : ", dce)
+						//fmt.Println("dce : ", dce)
 						fcnt := elemMap[dce.SpfKey]
-						fmt.Println("fcnt : ", fcnt)
+						//fmt.Println("elem found : ", dce.SpfKey, " ", fcnt)
 						if dce.Required && fcnt == "" {
-							continue
+							//fmt.Println("required cont missing : ", fcnt)
+							foundErr = true
+							break
 						} else {
 							var cont = ""
 							if dce.Prefix != "" {
@@ -122,12 +127,18 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 								cont += fcnt
 							}
 							dcvr = append(dcvr, cont)
+							//fmt.Println("row ready to be appended : ", dcvr)
 						}
 					} else {
 						dcvr = append(dcvr, "")
 					}
 				}
 				//dcvr = append(dcvr, dce.)
+			}
+			//fmt.Println("foundErr : ", foundErr)
+			//fmt.Println("row ready to be added : ", dcvr)
+			if foundErr{
+				continue
 			}
 			rtn = append(rtn, dcvr)
 
@@ -138,6 +149,6 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 		//fmt.Println("row : ", row)
 
 	}
-	fmt.Println("cart file : ", rtn)
+	//fmt.Println("cart file : ", rtn)
 	return &rtn
 }
