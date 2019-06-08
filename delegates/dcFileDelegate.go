@@ -137,7 +137,7 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 			}
 			//fmt.Println("foundErr : ", foundErr)
 			//fmt.Println("row ready to be added : ", dcvr)
-			if foundErr{
+			if foundErr {
 				continue
 			}
 			rtn = append(rtn, dcvr)
