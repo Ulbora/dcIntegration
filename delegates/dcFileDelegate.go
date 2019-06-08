@@ -121,7 +121,7 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 								foundErr = true
 								break
 							}
-						}else if dce.CartKey == "cost" || dce.CartKey == "price" || dce.CartKey == "price2" || dce.CartKey == "weight"{
+						} else if dce.CartKey == "cost" || dce.CartKey == "price" || dce.CartKey == "price2" || dce.CartKey == "weight" {
 							if _, err := strconv.ParseFloat(fcnt, 64); err != nil {
 								foundErr = true
 								break
