@@ -78,7 +78,7 @@ func (d *DcCartFileDelegate) BuildDcCartFiles(supdir string, dcartdir string, co
 
 func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 	var rtn [][]string
-	var dccol = []string{"distributor", "id", "mfgid", "name", "manufacturer", "categories", "cost", "price", "price2", "stock", "weight", "free_shipping", "date_created", "description", "extended_description", "keywords", "hide", "sorting", "thumbnail", "image1", "image2", "image3", "image4", "related", "distributor", "shipcost", "homespecial", "categoryspecial", "title", "metatags"}
+	var dccol = []string{"distributor", "id", "mfgid", "name", "manufacturer", "categories", "cost", "price", "price2", "stock", "weight", "description", "extended_description", "thumbnail", "image1"}
 	rtn = append(rtn, dccol)
 	// var dcrow []map[string]string
 	var scol []string
