@@ -3,5 +3,8 @@ package delegates
 import "testing"
 
 func TestBuildDcCartFiles(t *testing.T) {
-	BuildDcCartFiles("../sfFileTest", "../cartFileTest", "../confFileTest")
+	var del DcCartDelegate
+	var fdel DcCartFileDelegate
+	del = &fdel
+	del.BuildDcCartFiles("../sfFileTest", "../cartFileTest", "../confFileTest")
 }

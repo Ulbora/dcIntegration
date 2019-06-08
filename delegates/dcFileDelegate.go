@@ -1,6 +1,7 @@
 package delegates
 
 import (
+	"strconv"
 	//"fmt"
 
 	sfb "github.com/Ulbora/intgFileBuilder"
@@ -23,9 +24,9 @@ import (
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-//DcCartFileDelegate DcCartFileDelegate
-type DcCartFileDelegate interface {
-	BuildDcCartFiles()
+//DcCartDelegate DcCartDelegate
+type DcCartDelegate interface {
+	BuildDcCartFiles(supdir string, dcartdir string, confdir string)
 }
 
 //Elem Elem
@@ -34,8 +35,12 @@ type Elem struct {
 	Value      string
 }
 
+//DcCartFileDelegate DcCartFileDelegate
+type DcCartFileDelegate struct {
+}
+
 //BuildDcCartFiles BuildDcCartFiles
-func BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
+func (d *DcCartFileDelegate) BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
 	var cf DcConfigFileDelegate
 	var conf DcConfigFiles
 	cf = &conf
@@ -109,7 +114,19 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 					//fmt.Println("CartKey : ", dce.CartKey)
 					if dce.CartKey != "" {
 						//fmt.Println("dce : ", dce)
+						//fmt.Println("supply Key : ", dce.CartKey)
 						fcnt := elemMap[dce.SpfKey]
+						if dce.CartKey == "stock" {
+							if _, err := strconv.Atoi(fcnt); err != nil {
+								foundErr = true
+								break
+							}
+						}else if dce.CartKey == "cost" || dce.CartKey == "price" || dce.CartKey == "price2" || dce.CartKey == "weight"{
+							if _, err := strconv.ParseFloat(fcnt, 64); err != nil {
+								foundErr = true
+								break
+							}
+						}
 						//fmt.Println("elem found : ", dce.SpfKey, " ", fcnt)
 						if dce.Required && fcnt == "" {
 							//fmt.Println("required cont missing : ", fcnt)
