@@ -22,7 +22,7 @@ func main() {
 		del = &fdel
 		del.BuildDcCartFiles(supDir, dcDir, confDir)
 		fmt.Println("Created dc files at " + dcDir)
-	}else{
+	} else {
 		fmt.Println("No params sent at command line")
 	}
 
