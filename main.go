@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	var supDir = ""
-	var dcDir = ""
-	var confDir = ""
+	var supDir string
+	var dcDir string
+	var confDir string
 	if len(os.Args) >= 4 {
 		supDir = os.Args[1]
 		dcDir = os.Args[2]
