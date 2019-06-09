@@ -5,7 +5,7 @@ github.com/Ulbora/dcIntegration/delegates/dcConfigDelegate.go:31.26,39.3 6 1
 github.com/Ulbora/dcIntegration/delegates/dcConfigDelegate.go:46.62,49.23 2 1
 github.com/Ulbora/dcIntegration/delegates/dcConfigDelegate.go:61.2,61.13 1 1
 github.com/Ulbora/dcIntegration/delegates/dcConfigDelegate.go:49.23,60.3 1 1
-github.com/Ulbora/dcIntegration/delegates/dcFileDelegate.go:43.95,55.31 10 1
+github.com/Ulbora/dcIntegration/delegates/dcFileDelegate.go:43.107,55.31 10 1
 github.com/Ulbora/dcIntegration/delegates/dcFileDelegate.go:55.31,58.36 1 1
 github.com/Ulbora/dcIntegration/delegates/dcFileDelegate.go:58.36,71.4 7 1
 github.com/Ulbora/dcIntegration/delegates/dcFileDelegate.go:79.72,85.34 5 1

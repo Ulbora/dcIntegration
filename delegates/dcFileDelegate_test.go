@@ -6,5 +6,5 @@ func TestBuildDcCartFiles(t *testing.T) {
 	var del DcCartDelegate
 	var fdel DcCartFileDelegate
 	del = &fdel
-	del.BuildDcCartFiles("../sfFileTest", "../cartFileTest", "../confFileTest")
+	del.BuildDcCartFiles("../sfFileTest", "../cartFileTest", "../confFileTest", true)
 }

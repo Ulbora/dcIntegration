@@ -26,7 +26,7 @@ import (
 
 //DcCartDelegate DcCartDelegate
 type DcCartDelegate interface {
-	BuildDcCartFiles(supdir string, dcartdir string, confdir string)
+	BuildDcCartFiles(supdir string, dcartdir string, confdir string, clean bool)
 }
 
 //Elem Elem
@@ -40,7 +40,7 @@ type DcCartFileDelegate struct {
 }
 
 //BuildDcCartFiles BuildDcCartFiles
-func (d *DcCartFileDelegate) BuildDcCartFiles(supdir string, dcartdir string, confdir string) {
+func (d *DcCartFileDelegate) BuildDcCartFiles(supdir string, dcartdir string, confdir string, clean bool) {
 	var cf DcConfigFileDelegate
 	var conf DcConfigFiles
 	cf = &conf
@@ -58,7 +58,7 @@ func (d *DcCartFileDelegate) BuildDcCartFiles(supdir string, dcartdir string, co
 		for _, file := range filed.Files {
 			//fmt.Println("file name: ", file.Name)
 			//fmt.Println("file full name: ", file.FullName)
-			fcont := b.ReadSourceFile(file.FullName)
+			fcont := b.ReadSourceFile(file.FullName, clean)
 			//fmt.Println("sup file: ", fcont.)
 			//fmt.Println("fcont len: ", len(fcont))
 			cfil := (*cfiles)[filed.Name]

@@ -14,3 +14,5 @@ github.com/Ulbora/intgFileBuilder v1.0.1 h1:vbs5/UGiXVkQGa2/d21Vglvmb9wxnmonf1m4
 github.com/Ulbora/intgFileBuilder v1.0.1/go.mod h1:OL3YKNitjdMoaXVVjPB+Xl6GzpGW+kJbEqJiwvaIoRs=
 github.com/Ulbora/intgFileBuilder v1.0.2 h1:d39bsgUeOWUIfU8aaPXuHz3fc3y1/fs7n5N1GCP9GnU=
 github.com/Ulbora/intgFileBuilder v1.0.2/go.mod h1:59JrYYrIsGCr8TtVeFGHE70KIZYmxLNjtLdj5oSVw+A=
+github.com/Ulbora/intgFileBuilder v1.0.3 h1:AXZ0RMsj9537xpW1/4vMsGI1MJLpf+s6E4wtQl6FFqQ=
+github.com/Ulbora/intgFileBuilder v1.0.3/go.mod h1:59JrYYrIsGCr8TtVeFGHE70KIZYmxLNjtLdj5oSVw+A=
