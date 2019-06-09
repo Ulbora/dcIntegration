@@ -1,10 +1,16 @@
+github.com/Ulbora/csvCleaner v1.0.1 h1:A/8jk7r4rngeiEB9H0dk6mxHYbUpYBTRk6/XEWrxjcs=
+github.com/Ulbora/csvCleaner v1.0.1/go.mod h1:lxDyPhSpPiddO2HO/gcaHURgMBxAj2+HnYj3BK2E+ZU=
 github.com/Ulbora/intgConvConfig v1.0.0 h1:pQKsd8Tjq3Dip29OrnzrswTNE6XVy6qpmmjaMXecDjQ=
 github.com/Ulbora/intgConvConfig v1.0.0/go.mod h1:nzFSfOmvw7RD0HNc5am2NSsLpXjGHmyDpYyIlnJX8Gw=
 github.com/Ulbora/intgConvConfig v1.0.1 h1:+QY0PALM84jQOC8sniNGfN+d3LkFGbhEs2PqtKxs5pY=
 github.com/Ulbora/intgConvConfig v1.0.1/go.mod h1:nzFSfOmvw7RD0HNc5am2NSsLpXjGHmyDpYyIlnJX8Gw=
 github.com/Ulbora/intgConvConfig v1.0.2 h1:6tDc0/Chf8jCtX5mhd0wKWGKYCmYXye6em//L92T4cA=
 github.com/Ulbora/intgConvConfig v1.0.2/go.mod h1:nzFSfOmvw7RD0HNc5am2NSsLpXjGHmyDpYyIlnJX8Gw=
+github.com/Ulbora/intgConvConfig v1.0.3 h1:4/fyWHSHvkZy3o8FK87t/Dl7/cXiuAzCQNR+zsNa3kE=
+github.com/Ulbora/intgConvConfig v1.0.3/go.mod h1:nzFSfOmvw7RD0HNc5am2NSsLpXjGHmyDpYyIlnJX8Gw=
 github.com/Ulbora/intgFileBuilder v1.0.0 h1:pJgLCL8V3vP0bifM0ASiG1eVL2b0hTMhnS/3ZcQlanY=
 github.com/Ulbora/intgFileBuilder v1.0.0/go.mod h1:OL3YKNitjdMoaXVVjPB+Xl6GzpGW+kJbEqJiwvaIoRs=
 github.com/Ulbora/intgFileBuilder v1.0.1 h1:vbs5/UGiXVkQGa2/d21Vglvmb9wxnmonf1m40Po9kfw=
 github.com/Ulbora/intgFileBuilder v1.0.1/go.mod h1:OL3YKNitjdMoaXVVjPB+Xl6GzpGW+kJbEqJiwvaIoRs=
+github.com/Ulbora/intgFileBuilder v1.0.2 h1:d39bsgUeOWUIfU8aaPXuHz3fc3y1/fs7n5N1GCP9GnU=
+github.com/Ulbora/intgFileBuilder v1.0.2/go.mod h1:59JrYYrIsGCr8TtVeFGHE70KIZYmxLNjtLdj5oSVw+A=

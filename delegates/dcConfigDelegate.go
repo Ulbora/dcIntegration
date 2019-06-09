@@ -17,6 +17,7 @@ type DcConfigFiles struct {
 type ConfFile struct {
 	Directory   string
 	Distributor string
+	CartHeader  []string
 	Fields      *map[string]sfc.SpfField
 }
 
@@ -32,6 +33,7 @@ func (dcc *DcConfigFiles) GetDcConfigs(dir string) *map[string]ConfFile {
 		var f ConfFile
 		f.Directory = v.CfDirectory
 		f.Distributor = v.Distributor
+		f.CartHeader = v.CartHeader
 		f.Fields = buildFields(v.SpfFields)
 		rtn[v.CfDirectory] = f
 	}

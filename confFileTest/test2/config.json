@@ -1,6 +1,23 @@
 {
     "distributor": "test2ds",
     "cfDirectory": "test2",
+    "cartHeader": [
+        "distributor",
+        "id",
+        "mfgid",
+        "name",
+        "manufacturer",
+        "categories",
+        "cost",
+        "price",
+        "price2",
+        "stock",
+        "weight",
+        "description",
+        "extended_description",
+        "thumbnail",
+        "image1"
+    ],
     "spfFields": [
         {
             "spfKey": "SKURcrd",
@@ -21,7 +38,7 @@
             ]
         },
         {
-            "spfKey": "MfgNo",
+            "spfKey": "MfgAbbv",
             "cartKey": "mfgid",
             "required": false,
             "prefix": "",
