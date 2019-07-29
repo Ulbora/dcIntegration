@@ -1,8 +1,8 @@
 package delegates
 
 import (
+	"fmt"
 	"strconv"
-	//"fmt"
 
 	sfb "github.com/Ulbora/intgFileBuilder"
 )
@@ -116,6 +116,30 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 						//fmt.Println("dce : ", dce)
 						//fmt.Println("supply Key : ", dce.CartKey)
 						fcnt := elemMap[dce.SpfKey]
+						if dce.CartKey == "price" {
+							if fcnt == "" || fcnt == "0" {
+								fcnt = elemMap[dce.SpfAltKey]
+								cst := elemMap[dce.SpfCost]
+								factor := dce.CartPriceFactor
+								// fmt.Println("fcnt : ", fcnt)
+								// fmt.Println("factor : ", factor)
+								if msrp, err := strconv.ParseFloat(fcnt, 64); err == nil {
+									//fmt.Println("msrp : ", msrp)
+									if mulFact, err2 := strconv.ParseFloat(factor, 64); err2 == nil {
+										if cost, err3 := strconv.ParseFloat(cst, 64); err3 == nil {
+											msrp = msrp * mulFact
+											//fmt.Println("msrp : ", msrp)
+											//fmt.Println("cost : ", cost+2)
+											if msrp > cost+2 {
+												fcnt = fmt.Sprintf("%.2f", msrp)
+											}
+
+										}
+
+									}
+								}
+							}
+						}
 						if dce.CartKey == "stock" {
 							if _, err := strconv.Atoi(fcnt); err != nil {
 								foundErr = true

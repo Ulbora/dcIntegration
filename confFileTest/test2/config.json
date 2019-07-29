@@ -92,13 +92,16 @@
             ]
         },
         {
-            "spfKey": "MSRP",
+            "spfKey": "MAP",
             "cartKey": "price",
             "required": true,
             "prefix": "",
             "spfSubKeys": [
                 
-            ]
+            ],
+            "spfAltKey": "MSRP",
+            "cartPriceFactor": ".7",
+            "spfCost" : "Price"
         },
         {
             "spfKey": "MSRP",
