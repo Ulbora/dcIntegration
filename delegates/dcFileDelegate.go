@@ -59,7 +59,7 @@ func (d *DcCartFileDelegate) BuildDcCartFiles(supdir string, dcartdir string, co
 			//fmt.Println("file name: ", file.Name)
 			//fmt.Println("file full name: ", file.FullName)
 			fcont := b.ReadSourceFile(file.FullName, clean)
-			//fmt.Println("sup file: ", fcont.)
+			//fmt.Println("sup file: ", fcont)
 			//fmt.Println("fcont len: ", len(fcont))
 			cfil := (*cfiles)[filed.Name]
 			dccont := buildCartFile(&fcont, &cfil)
@@ -79,6 +79,7 @@ func (d *DcCartFileDelegate) BuildDcCartFiles(supdir string, dcartdir string, co
 func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 	var rtn [][]string
 	var dccol = conf.CartHeader // []string{"distributor", "id", "mfgid", "name", "manufacturer", "categories", "cost", "price", "price2", "stock", "weight", "description", "extended_description", "thumbnail", "image1"}
+	//fmt.Println("dccol : ", dccol)
 	rtn = append(rtn, dccol)
 	// var dcrow []map[string]string
 	var scol []string
@@ -104,8 +105,11 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 			dcvr = append(dcvr, conf.Distributor)
 			//fmt.Println("elemMap : ", elemMap)
 			var foundErr = false
+			//fmt.Println("dccol : ", dccol)
 			for colc, dck := range dccol {
+				//fmt.Println("dccol : ", dccol)
 				//fmt.Println("dck : ", dck)
+				//fmt.Println("colc : ", colc)
 				if colc == 0 {
 					continue
 				} else {
@@ -116,22 +120,37 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 						//fmt.Println("dce : ", dce)
 						//fmt.Println("supply Key : ", dce.CartKey)
 						fcnt := elemMap[dce.SpfKey]
+						//fmt.Println("dce.SpfKey: ", dce.SpfKey)
+						//fmt.Println("fcnt: ", fcnt)
 						if dce.CartKey == "price" {
 							if fcnt == "" || fcnt == "0" {
 								fcnt = elemMap[dce.SpfAltKey]
 								cst := elemMap[dce.SpfCost]
 								factor := dce.CartPriceFactor
 								// fmt.Println("fcnt : ", fcnt)
-								// fmt.Println("factor : ", factor)
+								//fmt.Println("factor : ", factor)
 								if msrp, err := strconv.ParseFloat(fcnt, 64); err == nil {
-									//fmt.Println("msrp : ", msrp)
+									//fmt.Println("msrp before 0: ", msrp)
 									if mulFact, err2 := strconv.ParseFloat(factor, 64); err2 == nil {
+										//fmt.Println("msrp before 0 after factor: ", msrp)
 										if cost, err3 := strconv.ParseFloat(cst, 64); err3 == nil {
-											msrp = msrp * mulFact
-											//fmt.Println("msrp : ", msrp)
-											//fmt.Println("cost : ", cost+2)
-											if msrp > cost+2 {
-												fcnt = fmt.Sprintf("%.2f", msrp)
+											//fmt.Println("msrp before test for 0: ", msrp)
+											if msrp != 0 {
+												msrp = msrp * mulFact
+												//fmt.Println("msrp : ", msrp)
+												//fmt.Println("cost : ", cost+2)
+												if msrp > cost+2 {
+													fcnt = fmt.Sprintf("%.2f", msrp)
+													//fmt.Println("msrp %: ", fcnt)
+												}
+											} else {
+												// cost = elemMap[dce.SpfAltKey2]
+												markuFactor := dce.CostMarkupFactor
+												if mupFact, err2 := strconv.ParseFloat(markuFactor, 64); err2 == nil {
+													prc := cost * mupFact
+													fcnt = fmt.Sprintf("%.2f", prc)
+													//fmt.Println("price from cost %: ", fcnt)
+												}
 											}
 
 										}
@@ -151,7 +170,23 @@ func buildCartFile(sourceFile *[][]string, conf *ConfFile) *[][]string {
 								break
 							}
 						}
+						if dce.CartKey == "weight" {
+							if wtg, err := strconv.Atoi(fcnt); err == nil {
+								if wtg == 0 {
+									fcnt = "1"
+								}
+							}
+						}
+						if dce.CartKey == "price2" {
+							if price2, err := strconv.ParseFloat(fcnt, 64); err == nil {
+								if price2 == 0 {
+									foundErr = true
+									break
+								}
+							}
+						}
 						//fmt.Println("elem found : ", dce.SpfKey, " ", fcnt)
+						//fmt.Println("dce.CartKey", dce.CartKey, fcnt)
 						if dce.Required && fcnt == "" {
 							//fmt.Println("required cont missing : ", fcnt)
 							foundErr = true

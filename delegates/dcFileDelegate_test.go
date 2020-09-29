@@ -7,4 +7,5 @@ func TestBuildDcCartFiles(t *testing.T) {
 	var fdel DcCartFileDelegate
 	del = &fdel
 	del.BuildDcCartFiles("../sfFileTest", "../cartFileTest", "../confFileTest", true)
+	//t.Fail()
 }

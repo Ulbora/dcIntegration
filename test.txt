@@ -1,0 +1,1 @@
+?   	github.com/Ulbora/dcIntegration	[no test files]

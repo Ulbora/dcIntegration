@@ -1,0 +1,154 @@
+{
+    "distributor": "GAS",
+    "cfDirectory": "gas",
+    "cartHeader": [
+        "distributor",
+        "id",
+        "mfgid",
+        "name",
+        "manufacturer",
+        "categories",
+        "cost",
+        "price",
+        "msrp",
+        "stock",
+        "weight",
+        "description",
+        "extended_description",
+        "thumbnail",
+        "image1"
+    ],
+    "spfFields": [
+        {
+            "spfKey": "sku",
+            "cartKey": "id",
+            "required": true,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "manufacturer",
+            "cartKey": "manufacturer",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "manufacturer_item_id",
+            "cartKey": "mfgid",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "warehouse_1_qty",
+            "cartKey": "stock",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [                
+            ]
+        },
+        {
+            "spfKey": "short_description",
+            "cartKey": "description",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "product_name",
+            "cartKey": "name",
+            "required": true,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "extended_description",
+            "cartKey": "extended_description",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "cost",
+            "cartKey": "cost",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "map",
+            "cartKey": "price",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ],
+            "spfAltKey": "msrp",
+            "cartPriceFactor": ".7",
+            "spfCost" : "cost",
+            "spfAltKey2": "cost",
+            "costMarkupFactor": "1.3"
+        },
+        {
+            "spfKey": "msrp",
+            "cartKey": "msrp",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "weight",
+            "cartKey": "weight",
+            "required": false,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "categories",
+            "cartKey": "categories",
+            "required": true,
+            "prefix": "",
+            "spfSubKeys": [    
+                           
+            ]
+        },
+        {
+            "spfKey": "thumbURL",
+            "cartKey": "thumbnail",
+            "required": true,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        },
+        {
+            "spfKey": "imageURL",
+            "cartKey": "image1",
+            "required": true,
+            "prefix": "",
+            "spfSubKeys": [
+                
+            ]
+        }
+
+    ]
+}
